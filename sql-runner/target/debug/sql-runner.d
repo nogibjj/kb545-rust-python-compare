@@ -1,1 +1,0 @@
-C:\Users\kbagh\Documents\School\MIDS\Data\ Engineering\kb545-rust-python-compare\sql-runner\target\debug\sql-runner.exe: C:\Users\kbagh\Documents\School\MIDS\Data\ Engineering\kb545-rust-python-compare\sql-runner\src\lib.rs C:\Users\kbagh\Documents\School\MIDS\Data\ Engineering\kb545-rust-python-compare\sql-runner\src\main.rs
