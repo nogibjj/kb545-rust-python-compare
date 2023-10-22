@@ -21,3 +21,7 @@ This will create the database locally, fill the values, and then execute any que
 
 ### How the Rust Scipt was Written
 The Rust script was written by utilizing the ```rusqlite``` package for creating the SQLite Database and executing the query, and utilizing the ```csv``` package for reading in the csv values before populating the SQLite Database. The crate to output the timing of the script was ```std::time```, and the CLI tool used was ```clap```. All of these have their respective dependencies added to the Cargo.toml file.
+
+### Tests
+
+There are tests written to check that a DB is created in the end, as well as if the query executions successfully is ran. There are logging messages as well if the query execution fails for whatever reason.
