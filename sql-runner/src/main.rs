@@ -1,8 +1,21 @@
 use csv::ReaderBuilder;
 use std::error::Error;
 use sql_runner::{create_db, fill_data, use_query};
+use clap::Parser;
 
-pub fn read_csv() -> Result<(), Box<dyn Error>> {
+#[derive(Parser)]
+#[clap(
+    version = "1.0",
+    author = "Your Name <your.email@example.com>",
+    about = "Query to Execute"
+)]
+
+struct Opts {
+    #[clap(String)]
+    query: String,
+}
+
+/*pub fn read_csv() -> Result<(), Box<dyn Error>> {
 
     let mut reader = ReaderBuilder::new()
         .has_headers(true)
@@ -18,11 +31,15 @@ pub fn read_csv() -> Result<(), Box<dyn Error>> {
     }
 
     Ok(())
-}
+}*/
 
 
 fn main() {
-    println!("I am here");
-    let _ = read_csv();
-    println!("I am done");
+    let opts: Opts = Opts::parse();
+
+    let query = opts.query;
+
+    let _ = create_db();
+    let _ = fill_data();
+    let _ = use_query(query);
 }
