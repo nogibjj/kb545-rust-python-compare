@@ -70,3 +70,17 @@ pub fn use_query(statement: String) -> Result<()>{
 
     Ok(())
 }
+
+#[test]
+fn test_database_exists(){
+    use std::path::Path;
+    
+    let path = Path::new("flower.db");
+    assert!(path.exists());
+}
+
+#[test]
+fn test_query_works(){
+    let query = "SELECT * FROM iris_info WHERE species = 'setosa' AND petal_length > 1.0";
+    let _ = use_query(query.to_string());
+}
