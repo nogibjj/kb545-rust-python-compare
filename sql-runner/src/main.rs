@@ -1,5 +1,3 @@
-use csv::ReaderBuilder;
-use std::error::Error;
 use sql_runner::{create_db, fill_data, use_query};
 use clap::Parser;
 
@@ -11,7 +9,7 @@ use clap::Parser;
 )]
 
 struct Opts {
-    #[clap(String)]
+    #[clap(long)]
     query: String,
 }
 

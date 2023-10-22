@@ -9,8 +9,11 @@ pub fn create_db() -> Result<()> {
 
     conn.execute(
         "create table if not exists iris_info (
-             variety text primary key,
-             petal_length numeric not null
+             sepal_length numeric not null,
+             sepal_width numeric not null,
+             petal_length numeric not null,
+             petal_width numeric not null,
+             species text not null
          )",
         (),
     )?;
@@ -19,22 +22,29 @@ pub fn create_db() -> Result<()> {
 }
 
 pub fn fill_data() -> Result<(), Box<dyn Error>> {
-
     let conn = Connection::open("flower.db")?;
 
     let mut reader = ReaderBuilder::new()
         .has_headers(true)
         .from_path("../iris.csv")?;
 
-    for result in reader.records(){
+
+    while let Some(result) = reader.records().next() {
         let record = result?;
 
-        let name = &record[2];
-        let length = &record[4];
-        
-        conn.execute("INSERT INTO iris_info (variety, petal_length) values (?1, ?2)", 
-            &[&name, &length],)?;
-        
+        let s_length = &record[0];
+        let s_width = &record[1];
+        let p_length = &record[2];
+        let p_width = &record[3];
+        let species = &record[4];
+
+        if let Err(err) = conn.execute(
+            "INSERT INTO iris_info (sepal_length, sepal_width, petal_length, petal_width, species) values (?1, ?2, ?3, ?4, ?5)",
+            &[&s_length, &s_width, &p_length, &p_width, &species],
+        ) {
+            eprintln!("Error inserting row: {}", err);
+        }
+
     }
 
     Ok(())
