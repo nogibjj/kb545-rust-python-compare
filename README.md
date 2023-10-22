@@ -18,3 +18,6 @@ In order to run this code, you need to execute the following command.
 ``` cargo run -- --query "ENTER YOUR QUERY HERE" ```
 
 This will create the database locally, fill the values, and then execute any query that was passed in. The one rule is that the query needs to be from the ```iris_info``` table
+
+### How the Rust Scipt was Written
+The Rust script was written by utilizing the ```rusqlite``` package for creating the SQLite Database and executing the query, and utilizing the ```csv``` package for reading in the csv values before populating the SQLite Database. The crate to output the timing of the script was ```std::time```, and the CLI tool used was ```clap```. All of these have their respective dependencies added to the Cargo.toml file.
