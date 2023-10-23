@@ -1,3 +1,8 @@
+[![Build binary release](https://github.com/nogibjj/kb545-rust-python-compare/actions/workflows/release.yml/badge.svg)](https://github.com/nogibjj/kb545-rust-python-compare/actions/workflows/release.yml)
+[![Lints](https://github.com/nogibjj/kb545-rust-python-compare/actions/workflows/lint.yml/badge.svg)](https://github.com/nogibjj/kb545-rust-python-compare/actions/workflows/lint.yml)
+[![Format](https://github.com/nogibjj/kb545-rust-python-compare/actions/workflows/rustfmt.yml/badge.svg)](https://github.com/nogibjj/kb545-rust-python-compare/actions/workflows/rustfmt.yml)
+[![Tests](https://github.com/nogibjj/kb545-rust-python-compare/actions/workflows/tests.yml/badge.svg)](https://github.com/nogibjj/kb545-rust-python-compare/actions/workflows/tests.yml)
+
 # Mini-Project 8: Rust Python Comparison
 
 In this project, we took a Python script that runs a query on an SQLite database, and completely rewrote it in Rust. Then, in order to highlight improvements, we recorded how fast it took for both entire scripts to execute. The results are shown below.
